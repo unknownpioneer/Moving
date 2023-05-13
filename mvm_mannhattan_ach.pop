@@ -1,0 +1,68 @@
+#base robot_giant.pop
+#base robot_standard.pop
+WaveSchedule
+{
+    StartingCurrency 88888
+    CanBotsAttackWhileInSpawnRoom No
+    Mission
+	{
+		Objective DestroySentries
+		Where spawnbot_main0
+		Where spawnbot_main1
+		Where spawnbot_main1
+		CooldownTime 30
+
+		TFBot
+		{
+			Template T_TFBot_SentryBuster
+			Tag bot_sentrybuster
+		}
+	}
+    Mission // Sniper - wave 1
+	{
+		Objective Sniper
+
+		InitialCooldown 40
+		Where spawnbot_mission_sniper0
+		Where spawnbot_mission_sniper1
+		BeginAtWave 1
+		RunForThisManyWaves 1
+		CooldownTime 85
+		DesiredCount 3
+
+		TFBot
+		{
+			Class Sniper
+			Skill Expert
+			Name Sniper
+			MaxVisionRange 4000
+		}
+	}
+    Wave
+    {
+        StartWaveOutput
+	    {
+		    Target wave_start_relay
+		    Action Trigger
+	    }
+
+	    InitWaveOutput
+	    {
+		    Target holograms_centerpath_relay
+		    Action Trigger
+	    }
+        WaveSpawn
+        {
+            TotalCount 10
+            MaxActive 1
+            TotalCurrency 600000
+            Where spawnbot_main0
+			Where spawnbot_main1
+			Where spawnbot_main2 
+            TFBot
+            {
+                Template T_TFGateBot_Giant_Heavyweapons_Shotgun_Crit
+            }
+        }
+    }
+}

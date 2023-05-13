@@ -1,0 +1,56 @@
+#base robot_giant.pop
+#base robot_standard.pop
+
+WaveSchedule
+{
+    StartingCurrency 10000
+    CanBotsAttackWhileInSpawnRoom No
+    Mission
+    {
+        Objective Spy
+        BeginAtWave 1
+        RunForThisManyWaves 1
+        CooldownTime 10
+        DesiredCount 20
+        TFBot
+        {
+            Template T_TFBot_Spy
+        }
+    }
+    Wave
+    {
+        StartWaveOutput
+        {
+            Target wave_start_relay
+            Action Trigger
+        }
+            DoneOutput
+        {
+            Target wave_finished_relay
+            Action Trigger
+        }
+        WaveSpawn
+        {
+            name "Enemy Spy for 1st wave"
+            TotalCount 10
+            TotalCurrency 500
+            MaxActive 2
+            TFBot
+            {
+                Template T_TFBot_Spy
+                Item "Voodoo-Cursed Spy Soul"
+            }
+        }
+        WaveSpawn
+        {
+            name "Enemy Spy for 2nd wave"
+            WaitForAllDead "Enemy Spy for 1st wave"
+            TotalCount 20
+            TotalCurrency 500
+            TFBot
+            {
+                Template T_TFBot_Spy
+            }
+        }
+    }
+}
