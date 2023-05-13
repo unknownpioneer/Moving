@@ -66,6 +66,29 @@ WaveSchedule
                 Item "Medic Mask"
                 Item "Vampiric Vesture"
         }
+        T_TFBot_Soldier_WTF
+        {
+            //ClassIcon 
+            Class Soldier
+            Skill Expert
+            Name "What the fxxk"
+            Attributes MiniBoss
+            Attributes UseBossHealthBar
+            Attributes BlastImmune
+            WeaponRestrictions PrimaryOnly
+            Health 99999
+            Attributes AlwaysCrit
+            Attributes AlwaysFireWeapon
+            Item "Blood Botkiller Rocket Launcher Mk.I"
+            ItemAttributes
+            {
+                ItemName "Blood Botkiller Rocket Launcher Mk.I"
+                "fire rate bonus" 0.6
+                "damage bonus" 0.5
+                "Reload time decreased" 2
+                "use large smoke explosion" 1
+            }
+        }
     }
 
         Wave
